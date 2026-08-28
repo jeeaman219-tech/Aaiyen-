@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Shalu ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:linear-gradient(135deg,#14001f,#4b075f,#12002b);
+  color:white;
+  font-family:Arial,sans-serif;
+  text-align:center;
+}
+
+.container{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  z-index:5;
+}
+
+.small{
+  font-size:15px;
+  letter-spacing:4px;
+  opacity:0;
+  animation:fade 2s forwards 1s;
+}
+
+h1{
+  margin-top:15px;
+  font-size:clamp(45px,12vw,80px);
+  line-height:1.05;
+  background:linear-gradient(90deg,#fff,#ff9eea,#fff);
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 30px #ff69c9;
+  opacity:0;
+  animation:zoom 1.4s forwards 2s;
+}
+
+.name{
+  font-size:clamp(50px,14vw,95px);
+  font-weight:bold;
+  color:#ff72d2;
+  text-shadow:0 0 10px #ff72d2,
+              0 0 30px #ff1493,
+              0 0 60px #ff1493;
+  opacity:0;
+  animation:zoom 1.4s forwards 2.7s;
+}
+
+.message{
+  max-width:330px;
+  margin-top:20px;
+  font-size:16px;
+  line-height:1.7;
+  opacity:0;
+  animation:fade 2s forwards 4s;
+}
+
+.cake{
+  font-size:65px;
+  margin-top:18px;
+  opacity:0;
+  animation:cakeIn 1.3s forwards 5s;
+}
+
+button{
+  margin-top:20px;
+  padding:14px 28px;
+  border:0;
+  border-radius:30px;
+  background:linear-gradient(90deg,#ff1493,#ff69b4);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  box-shadow:0 0 25px #ff1493;
+  opacity:0;
+  animation:fade 2s forwards 5.5s;
+}
+
+button:active{
+  transform:scale(.92);
+}
+
+/* HEARTS */
+.heart{
+  position:absolute;
+  bottom:-50px;
+  animation:float linear infinite;
+  opacity:.8;
+}
+
+/* BALLOONS */
+.balloon{
+  position:absolute;
+  bottom:-130px;
+  width:55px;
+  height:70px;
+  border-radius:50%;
+  animation:balloon 10s linear infinite;
+}
+
+.balloon:after{
+  content:"";
+  position:absolute;
+  width:1px;
+  height:100px;
+  background:white;
+  top:65px;
+  left:50%;
+}
+
+.b1{left:8%;background:#ff4fa3;animation-delay:1s}
+.b2{right:8%;background:#8b5cf6;animation-delay:4s}
+.b3{left:25%;background:#ffca3a;animation-delay:7s}
+.b4{right:25%;background:#43e6c3;animation-delay:2s}
+
+/* STARS */
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+
+/* SURPRISE */
+#surprise{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(18,0,35,.97);
+  z-index:20;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:25px;
+}
+
+.love{
+  font-size:clamp(42px,12vw,72px);
+  font-weight:bold;
+  color:#ff69b4;
+  text-shadow:0 0 10px #ff1493,
+              0 0 30px #ff1493,
+              0 0 60px #ff1493;
+  animation:pulse 1s infinite alternate;
+}
+
+.loveName{
+  font-size:clamp(45px,13vw,80px);
+  font-weight:bold;
+  color:white;
+  text-shadow:0 0 25px #ff69b4;
+  margin-top:5px;
+}
+
+#surprise p{
+  margin-top:22px;
+  font-size:17px;
+  line-height:1.8;
+  max-width:340px;
+}
+
+.close{
+  opacity:1;
+  animation:none;
+  background:white;
+  color:#9b176f;
+}
+
+/* ANIMATIONS */
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes zoom{
+  from{
+    opacity:0;
+    transform:scale(.3);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes float{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:0;
+  }
+  15%{opacity:1}
+  to{
+    transform:translateY(-115vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes balloon{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-120vh);
+  }
+}
+
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:1;transform:scale(1.6)}
+}
+
+@keyframes cakeIn{
+  from{
+    opacity:0;
+    transform:scale(.3) translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse{
+  from{transform:scale(1)}
+  to{transform:scale(1.1)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<script>
+for(let i=0;i<70;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=Math.random()*3+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- BALLOONS -->
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+
+<!-- FLOATING HEARTS -->
+<script>
+const emojis=["❤️","💖","💕","💗","💓","💝","✨","🌸","🌷"];
+
+for(let i=0;i<40;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+  h.style.left=Math.random()*100+"%";
+  h.style.fontSize=(16+Math.random()*25)+"px";
+  h.style.animationDuration=(5+Math.random()*7)+"s";
+  h.style.animationDelay=Math.random()*7+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- MAIN -->
+<div class="container">
+
+  <div class="small">
+    ✨ A SPECIAL SURPRISE FOR YOU ✨
+  </div>
+
+  <h1>
+    HAPPY<br>
+    BIRTHDAY
+  </h1>
+
+  <div class="name">
+    Shalu 💖
+  </div>
+
+  <div class="message">
+    May your smile always stay beautiful,<br>
+    may your dreams come true,<br>
+    and may your life always be filled<br>
+    with happiness & beautiful moments. 🌸
+  </div>
+
+  <div class="cake">
+    🎂
+  </div>
+
+  <button onclick="surprise()">
+    💝 TAP FOR A SURPRISE 💝
+  </button>
+
+</div>
+
+<!-- SURPRISE -->
+<div id="surprise">
+
+  <div class="love">
+    I LOVE YOU
+  </div>
+
+  <div class="loveName">
+    SHALU ❤️
+  </div>
+
+  <p>
+    🌸 You are truly special 🌸<br><br>
+    Keep smiling, keep shining,<br>
+    and always stay happy. ✨❤️
+  </p>
+
+  <button class="close" onclick="closeSurprise()">
+    ✨ Close
+  </button>
+
+</div>
+
+<script>
+
+function surprise(){
+
+  document.getElementById("surprise").style.display="flex";
+
+  /* HEART BURST */
+  for(let i=0;i<45;i++){
+
+    let h=document.createElement("div");
+
+    h.innerHTML=["❤️","💖","💕","💗","✨"][Math.floor(Math.random()*5)];
+
+    h.style.position="fixed";
+    h.style.left="50%";
+    h.style.top="50%";
+    h.style.fontSize=(20+Math.random()*25)+"px";
+    h.style.zIndex="30";
+
+    let x=(Math.random()-0.5)*700;
+    let y=(Math.random()-0.5)*700;
+
+    h.animate(
+      [
+        {
+          transform:"translate(-50%,-50%) scale(.2)",
+          opacity:1
+        },
+        {
+          transform:`translate(${x}px,${y}px) scale(1.5)`,
+          opacity:0
+        }
+      ],
+      {
+        duration:1400,
+        easing:"ease-out"
+      }
+    );
+
+    document.getElementById("surprise").appendChild(h);
+
+    setTimeout(()=>{
+      h.remove();
+    },1400);
+  }
+}
+
+function closeSurprise(){
+  document.getElementById("surprise").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
